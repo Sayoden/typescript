@@ -70,3 +70,29 @@ t1.sort();
 
 console.log(x);
 
+let y = t1.filter(value => value % 2 == 0);
+
+let z = function(x: number) : number[] {
+    return t1.filter(value => value < x);
+}
+
+let a = t1.map(x => x * 2);
+
+let b = t1.reduce((previousValue, currentValue) => previousValue + currentValue );
+
+console.log("========= Exo5.5 ===========")
+console.log(t1);
+console.log(y);
+console.log(z(10));
+console.log(a);
+console.log(b);
+
+const reducePonderee = (acc: number[], current: number[]) => {
+    acc[0] += current[0];
+    acc[1] += current[1] * current[2];
+    return acc;
+};
+
+const notes = [ [1,10], [2,15], [1,5] ];
+const resultat = notes.reduce(reducePonderee, [0, 0]);
+console.log("Moyenne pondérée des éléments du tableau ", notes, ' = ', (resultat[1] / resultat[0]));
